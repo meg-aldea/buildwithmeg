@@ -106,8 +106,13 @@ if (filters.length) {
       p.hidden = f !== "all" && !p.dataset.track.split(" ").includes(f);
       if (!p.hidden) p.classList.add("in");
     });
+    document.querySelectorAll(".pgroup").forEach((g) => {
+      g.hidden = !g.querySelector(".project:not([hidden])");
+      if (!g.hidden) g.querySelectorAll(".reveal").forEach((r) => r.classList.add("in"));
+    });
   };
   filters.forEach((b) => b.addEventListener("click", () => apply(b.dataset.f)));
   const q = new URLSearchParams(location.search).get("f");
   if (q === "ai" || q === "edtech") apply(q);
 }
+
