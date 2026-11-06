@@ -1411,3 +1411,7 @@ body.dark .step b { color: var(--ink); }
 .contact .email-panel .addr, .contact .email-panel .copy { color: var(--ink); }
 .contact .email-panel .copy { border-color: var(--line); }
 .contact .email-panel .gmail { color: var(--red-ink); }
+.industries.industries-only { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.industries.industries-only li { justify-content: flex-start; font-weight: 600; color: var(--ink); }
+@media (max-width: 860px) { .industries.industries-only { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .industries.industries-only { grid-template-columns: 1fr; } }
