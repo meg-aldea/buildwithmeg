@@ -1192,3 +1192,222 @@ h2 { font-size: clamp(2rem, 4vw, 3.1rem); }
 .pgroup-head { display: grid; gap: 12px; max-width: 62ch; }
 .pgroup-head h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
 .pgroup-head p { margin: 0; color: var(--ink-2); }
+
+/* =====================================================================
+   EDITORIAL LAYOUT (landing only: body.editorial)
+   Typography, whitespace and hairline rules instead of boxes.
+   ===================================================================== */
+.editorial section { padding-block: clamp(72px, 10vw, 128px); }
+.editorial .section-head { margin-bottom: clamp(36px, 5vw, 60px); }
+
+/* results: report-style stat spread */
+.editorial .results { gap: 0 clamp(24px, 3vw, 40px); border-top: 1px solid var(--ink); }
+.editorial .result, .editorial .result:hover {
+  background: transparent; border: 0 !important; border-bottom: 1px solid var(--line) !important;
+  border-radius: 0; box-shadow: none; transform: none; padding: 28px 0 26px; gap: 6px;
+}
+.editorial .result .big { font-size: clamp(2.5rem, 4vw, 3.3rem); margin-bottom: 4px; }
+.editorial .result strong { font-size: .98rem; }
+.editorial .result p { font-size: .9rem; }
+.editorial .result .co { padding-top: 12px; }
+.editorial .result.feature, .editorial .result.feature:hover {
+  background: var(--blue); border: 0 !important; border-radius: 0; padding: 32px 32px 28px; margin-top: -1px;
+  box-shadow: none;
+}
+.editorial .result.feature .big { font-size: clamp(3.6rem, 7vw, 5.6rem); line-height: .95; }
+
+/* quote: big pull quote, no box */
+.editorial .quote-card, .editorial .quote-card:hover {
+  background: transparent; border: 0 !important; border-left: 3px solid var(--red) !important; border-radius: 0;
+  box-shadow: none; padding: 6px 0 6px clamp(20px, 3vw, 36px); max-width: 860px; margin-left: 0;
+}
+.editorial .quote-card blockquote { font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.25; }
+
+/* awards: plain two-column list */
+.editorial .lp, .editorial .lp:hover { background: transparent; border: 0 !important; border-top: 1px solid var(--line) !important; border-radius: 0; box-shadow: none; padding: 28px 0 0; }
+.editorial .lp h3 { font: 500 .74rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 18px; }
+.editorial .lp > p { color: var(--ink-2); font-size: .95rem; margin: -8px 0 16px; }
+.editorial .lp ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 40px; }
+.editorial .lp li { font-weight: 400; color: var(--ink-2); align-items: baseline; }
+.editorial .lp li::before { transform: translateY(-2px); }
+@media (max-width: 760px) { .editorial .lp ul { grid-template-columns: 1fr; } }
+
+/* hired-to-fix: numbered rows */
+.editorial .problems { grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--ink); counter-reset: fix; }
+.editorial .problem, .editorial .problem:hover {
+  counter-increment: fix;
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 12px clamp(24px, 5vw, 72px);
+  background: transparent; border: 0 !important; border-bottom: 1px solid var(--line) !important; border-radius: 0;
+  box-shadow: none; transform: none; padding: 30px 0; overflow: visible;
+}
+.editorial .problem .pain { border: 0; padding: 0; font-size: clamp(1.15rem, 1.8vw, 1.4rem); line-height: 1.3; }
+.editorial .problem .pain .cat::before { content: counter(fix, decimal-leading-zero) "  ·  "; color: var(--ink-3); }
+.editorial .problem .fix { padding: 0; }
+.editorial .problem .fix strong { display: none; }
+.editorial .problem .fix p { font-size: 1rem; }
+@media (max-width: 760px) { .editorial .problem { grid-template-columns: 1fr; } }
+
+/* industries: inline text, no pills */
+.editorial .range .chips { gap: 0; }
+.editorial .range .chip { border: 0; background: none; padding: 0; font: 500 .95rem/1.9 var(--body); color: var(--ink-2); }
+.editorial .range .chip + .chip::before { content: "·"; margin: 0 .75em; color: var(--red); font-weight: 700; }
+
+/* deep dive: a sentence with a link, no box */
+.editorial .deep, .editorial .deep:hover { background: transparent; border: 0 !important; border-top: 1px solid var(--line) !important; border-radius: 0; box-shadow: none; padding: 28px 0 0; }
+.editorial .deep .btn { background: transparent; color: var(--ink); border: 0; padding: 0; font-weight: 600; font-size: 1.15rem; border-radius: 0;
+  background-image: linear-gradient(var(--red), var(--red)); background-repeat: no-repeat; background-position: 0 100%; background-size: 100% 2px; padding-bottom: 3px; }
+.editorial .deep .btn:hover { background-color: transparent; color: var(--red-ink); }
+
+/* let's talk: two short columns + email as the headline CTA */
+.editorial .asks { gap: 0 clamp(28px, 5vw, 64px); margin-bottom: 44px; }
+.editorial .ask { background: transparent; border: 0 !important; border-top: 1px solid rgba(255,255,255,.2) !important; border-radius: 0; box-shadow: none; padding: 22px 0 0; }
+.editorial .contact-links { align-items: baseline; gap: 18px 32px; }
+/* contact: two equal buttons (no giant email) */
+
+/* editorial: awards back in one box */
+.editorial .lp, .editorial .lp:hover {
+  background: #fff; border: 1px solid var(--line) !important; border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: clamp(24px, 3.5vw, 36px);
+}
+.editorial .lp h3 { margin-bottom: 20px; }
+/* a touch slower so the underline draw is noticeable */
+.hl, .hl.blue, .hl.pink, .outreach .hl, .band .hl { transition-duration: 1.2s; }
+
+/* AI page: 8-cell results (feature spans 2) + toolkit box */
+.editorial .results-8 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 960px) { .editorial .results-8 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .editorial .results-8 { grid-template-columns: 1fr; } }
+.kit { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px clamp(24px, 4vw, 48px); }
+.kit-h { display: block; font: 600 .95rem/1.3 var(--body); color: var(--ink); margin-bottom: 8px; }
+.kit p { margin: 0; color: var(--ink-2); font-size: .95rem; line-height: 1.7; }
+@media (max-width: 860px) { .kit { grid-template-columns: 1fr; } }
+
+/* EdTech page in editorial: skills grid + 2x2 proof as hairline spreads */
+.editorial .grid-6, .editorial .grid-6:hover {
+  background: transparent; border: 0 !important; border-top: 1px solid var(--ink) !important;
+  border-radius: 0; box-shadow: none; overflow: visible;
+}
+.editorial .cell { padding: 28px clamp(16px, 2.5vw, 28px) 30px 0; border-right: 0 !important; border-bottom: 1px solid var(--line) !important; }
+.editorial .cell:hover { background: transparent; }
+.editorial .cell .ico { margin: 14px 0 16px; }
+@media (min-width: 961px) { .editorial .cell:nth-last-child(-n+3) { border-bottom: 1px solid var(--line) !important; } }
+@media (max-width: 960px) and (min-width: 561px) { .editorial .cell:nth-last-child(-n+2) { border-bottom: 1px solid var(--line) !important; } }
+@media (max-width: 560px) { .editorial .cell:last-child { border-bottom: 1px solid var(--line) !important; } }
+
+.editorial .wins-4 { gap: 0 clamp(24px, 4vw, 56px); border-top: 1px solid var(--ink); }
+.editorial .win, .editorial .win:hover {
+  background: transparent; border: 0 !important; border-bottom: 1px solid var(--line) !important;
+  border-radius: 0; box-shadow: none; transform: none; padding: 28px 0;
+}
+.editorial .wins-4 .win:first-child { background: var(--blue); padding: 28px 28px; margin-top: -1px; }
+
+/* =====================================================================
+   DARK THEME (AI page only: body.dark)
+   ===================================================================== */
+body.dark {
+  color-scheme: dark;
+  --paper: #0f1117;
+  --grid-minor: rgba(255, 255, 255, 0.03);
+  --grid-major: rgba(255, 255, 255, 0.055);
+  --ink: #eef0f5;
+  --ink-2: #b4b9c7;
+  --ink-3: #7d8394;
+  --line: rgba(255, 255, 255, 0.14);
+  --line-2: rgba(255, 255, 255, 0.07);
+  --tint: #1a1d26;
+  --panel: #161922;
+  --red-ink: #ee9b92;     /* pastel red, readable on dark */
+  --blue-ink: #a9bde6;    /* pastel blue, readable on dark */
+  --blue-soft: rgba(159, 180, 222, 0.12);
+  --red-soft: rgba(229, 138, 128, 0.14);
+  --shadow: 0 1px 2px rgba(0,0,0,.4), 0 12px 32px -16px rgba(0,0,0,.6);
+  --shadow-hover: var(--shadow);
+  background-color: var(--paper); color: var(--ink);
+}
+body.dark ::selection { background: rgba(159,180,222,.3); color: #fff; }
+body.dark .nav { background: rgba(15, 17, 23, 0.85); border-bottom-color: var(--line-2); }
+body.dark .logo { color: var(--ink); }
+body.dark .logo b { color: var(--red-ink); }
+
+/* buttons: light primary, outlined ghost */
+body.dark .btn { background: #eef0f5; color: #0f1117; border-color: #eef0f5; }
+body.dark .btn:hover { background: var(--blue); border-color: var(--blue); color: #0f1117; }
+body.dark .btn.ghost, body.dark .contact-links .btn.pinkb { background: transparent; color: var(--ink); border-color: var(--line); }
+body.dark .btn.ghost:hover, body.dark .contact-links .btn.pinkb:hover { background: rgba(255,255,255,.06); border-color: var(--ink); color: var(--ink); }
+
+/* surfaces */
+body.dark .polaroid { background: var(--panel); border-color: var(--line); }
+body.dark .polaroid figcaption { color: var(--ink-3); }
+body.dark .lp, body.dark .editorial .lp, body.dark.editorial .lp { background: var(--panel) !important; border-color: var(--line) !important; }
+body.dark .kit-h { color: var(--ink); }
+
+/* results: feature tile keeps shirt blue with dark text */
+body.dark .results { border-top-color: var(--ink-3) !important; }
+body.dark .result.feature strong, body.dark .result.feature .big { color: #0f1117 !important; }
+body.dark .result.feature p { color: #24293a; }
+body.dark .result.feature .co { color: #3a4157; }
+
+/* problems + labels */
+body.dark .problems { border-top-color: var(--ink-3) !important; }
+body.dark .problem .pain .cat, body.dark .problem .fix strong { color: var(--red-ink); }
+
+/* let's talk + footer: a notch deeper than the page */
+body.dark .outreach { background: #090b10; border-top: 1px solid var(--line-2); }
+body.dark .ask { border-top-color: var(--line) !important; }
+body.dark .footer-min { background: var(--paper); border-top-color: var(--line-2); color: var(--ink-3); }
+body.dark .footer-min a:hover { color: var(--ink); }
+body.dark .step b { color: var(--ink); }
+
+/* portfolio: one pill per card (the highlights button); everything else is text */
+.project .meta { gap: 0; align-items: baseline; }
+.project .meta span, .project .meta .yr, .trk, .trk.edtech {
+  border: 0 !important; background: none !important; padding: 0; border-radius: 0;
+  font: 500 .74rem/1.6 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3);
+}
+.project .meta .yr { color: var(--ink); font-weight: 600; }
+.project .meta .trk { color: var(--blue-ink); }
+.project .meta span + span::before { content: "·"; margin: 0 .7em; color: var(--ink-3); }
+.index-no { border: 0 !important; background: none !important; padding: 0; top: 18px; left: 20px; color: var(--ink-3); letter-spacing: .08em; }
+.more .cnt { background: none; padding: 0; color: var(--ink-3); font-size: .78rem; }
+
+/* filters as text tabs */
+.filters { gap: 28px; border-bottom: 1px solid var(--line-2); }
+.filter, .filter:hover {
+  border: 0; border-radius: 0; background: none; box-shadow: none; transform: none;
+  padding: 10px 0 12px; color: var(--ink-3); font: 500 .95rem/1 var(--body); margin-bottom: -1px;
+  border-bottom: 2px solid transparent;
+}
+.filter:hover { color: var(--ink); }
+.filter[aria-pressed="true"] { background: none; color: var(--ink); border-bottom-color: var(--red); }
+.project .meta .yr { flex-basis: 100%; margin-bottom: 2px; }
+.project .meta .yr + span::before { content: none; }
+
+/* secondary testimonials under the main quote */
+.quotes-more { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(24px, 4vw, 48px); margin-top: clamp(32px, 5vw, 48px); }
+.quote-sm { margin: 0; padding-top: 22px; border-top: 1px solid var(--line); }
+.quote-sm blockquote { margin: 0; font: 500 1.08rem/1.55 var(--body); color: var(--ink); letter-spacing: -0.01em; }
+.quote-sm cite { display: block; margin-top: 14px; font: 500 .8rem/1.5 var(--mono); font-style: normal; color: var(--ink-3); }
+.quote-sm cite strong { font-family: var(--body); color: var(--ink); font-size: .95rem; }
+
+/* industries mapped to where the work happened */
+.industries { list-style: none; margin: 20px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(28px, 5vw, 72px); border-top: 1px solid var(--ink); }
+.industries li { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.industries .ind { font-weight: 600; color: var(--ink); }
+.industries .where-co { font: 500 .78rem/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); text-align: right; }
+@media (max-width: 760px) { .industries { grid-template-columns: 1fr; } }
+
+/* email panel revealed after clicking "Email me" */
+.contact-links { flex-wrap: wrap; }
+.email-panel { flex-basis: 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 6px;
+  padding: 14px 18px; border-radius: 12px; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.05);
+  animation: moreIn .3s ease both; }
+.email-panel .addr { font: 500 1rem/1.3 var(--mono); color: #fff; user-select: all; }
+.email-panel .copy { font: 500 .88rem/1 var(--body); cursor: pointer; padding: 9px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,.3); background: transparent; color: #fff; }
+.email-panel .copy:hover { border-color: #fff; }
+.email-panel .gmail { font: 500 .88rem/1 var(--body); color: var(--red); text-decoration: none; }
+.email-panel .gmail:hover { text-decoration: underline; text-underline-offset: 3px; }
+/* light pages (about / portfolio / blog footer) */
+.contact .email-panel { border-color: var(--line); background: #fff; }
+.contact .email-panel .addr, .contact .email-panel .copy { color: var(--ink); }
+.contact .email-panel .copy { border-color: var(--line); }
+.contact .email-panel .gmail { color: var(--red-ink); }

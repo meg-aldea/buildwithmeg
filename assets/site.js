@@ -61,6 +61,10 @@ if (reduce || !("IntersectionObserver" in window)) {
     el.textContent = parseFloat(el.dataset.count).toFixed(parseInt(el.dataset.decimals || "0", 10)) + (el.dataset.suffix || "");
   });
 } else {
+  // start every counter at zero right away so the count-up is always visible
+  counters.forEach((el) => {
+    el.textContent = (0).toFixed(parseInt(el.dataset.decimals || "0", 10)) + (el.dataset.suffix || "");
+  });
   const cio = new IntersectionObserver(
     (entries) => {
       entries.forEach((e) => {
@@ -70,7 +74,7 @@ if (reduce || !("IntersectionObserver" in window)) {
         }
       });
     },
-    { threshold: 0.6 }
+    { threshold: 0.4 }
   );
   counters.forEach((el) => cio.observe(el));
 }
@@ -116,3 +120,39 @@ if (filters.length) {
   if (q === "ai" || q === "edtech") apply(q);
 }
 
+
+// Email links: the address is assembled only on click (never in the page source).
+// Clicking tries the visitor's mail app AND shows a small panel with copy + Gmail,
+// because mailto: silently does nothing when no mail app is set up.
+document.querySelectorAll(".email-link").forEach((a) => {
+  a.setAttribute("aria-expanded", "false");
+  a.addEventListener("click", (e) => {
+    e.preventDefault();
+    const addr = a.dataset.u + "@" + a.dataset.d;
+    let panel = a.parentElement.querySelector(".email-panel");
+    if (!panel) {
+      panel = document.createElement("div");
+      panel.className = "email-panel";
+      panel.setAttribute("role", "status");
+      panel.innerHTML =
+        '<span class="addr"></span>' +
+        '<button type="button" class="copy">Copy address</button>' +
+        '<a class="gmail" target="_blank" rel="noopener">Open in Gmail ↗</a>';
+      panel.querySelector(".addr").textContent = addr;
+      panel.querySelector(".gmail").href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(addr);
+      const copy = panel.querySelector(".copy");
+      copy.addEventListener("click", async () => {
+        try { await navigator.clipboard.writeText(addr); copy.textContent = "Copied ✓"; }
+        catch (err) {
+          const r = document.createRange(); r.selectNodeContents(panel.querySelector(".addr"));
+          const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); copy.textContent = "Press ⌘C to copy";
+        }
+        setTimeout(() => (copy.textContent = "Copy address"), 2500);
+      });
+      a.parentElement.appendChild(panel);
+    }
+    panel.hidden = false;
+    a.setAttribute("aria-expanded", "true");
+    window.location.href = "mailto:" + addr;
+  });
+});
