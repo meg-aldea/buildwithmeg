@@ -1415,3 +1415,35 @@ body.dark .step b { color: var(--ink); }
 .industries.industries-only li { justify-content: flex-start; font-weight: 600; color: var(--ink); }
 @media (max-width: 860px) { .industries.industries-only { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 480px) { .industries.industries-only { grid-template-columns: 1fr; } }
+
+/* ---------- Formula lede ---------- */
+.lede.formula .op { color: var(--red-ink); font-weight: 600; padding: 0 .15em; }
+.lede.formula strong { color: var(--ink); font-weight: 600; }
+
+/* ---------- Playbook / brand statement ---------- */
+.playbook { padding-top: 0; }
+.playbook .pb-grid { border-top: 1px solid var(--ink); padding-top: 2.5rem; }
+.playbook .eyebrow-mono { display:block; font-family: var(--mono, "JetBrains Mono", monospace); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color: var(--red-ink); margin-bottom:.8rem; }
+.pb-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items:start; }
+.pb-intro h2 { margin: 0 0 1rem; }
+.pb-intro p { color: var(--ink-2); font-size: 1.08rem; line-height:1.7; max-width: 46ch; }
+.pb-steps { list-style:none; margin:0; padding:0; counter-reset: pb; }
+.pb-steps li { counter-increment: pb; display:grid; grid-template-columns: 2.6rem 1fr; padding: .95rem 0; border-bottom: 1px solid rgba(0,0,0,.1); color: var(--ink-2); line-height:1.55; }
+.pb-steps li:first-child { border-top: 1px solid rgba(0,0,0,.1); }
+.pb-steps li::before { content: "0" counter(pb); font-family: var(--mono, "JetBrains Mono", monospace); font-size:.8rem; color: var(--red-ink); padding-top:.2rem; }
+.pb-steps li b { color: var(--ink); font-weight:600; }
+.pb-steps li:last-child b { color: var(--red-ink); }
+.pb-traits { display:grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.5rem; }
+.pb-traits p { margin:0; color: var(--ink-2); line-height:1.7; padding-left: 1rem; border-left: 3px solid var(--blue); }
+.pb-traits p:last-child { border-left-color: var(--red); }
+.pb-traits p:only-child { grid-column: 1 / -1; max-width: 62ch; }
+.pb-traits strong { color: var(--ink); display:block; margin-bottom:.25rem; }
+@media (max-width: 820px) { .pb-grid, .pb-traits { grid-template-columns: 1fr; gap: 1.75rem; } }
+.pb-where { margin: 2.5rem 0 0; padding-top: 1.25rem; border-top: 1px solid rgba(0,0,0,.1); color: var(--ink-2); line-height: 1.9; }
+.pb-where .lbl { display:block; font-family: var(--mono, "JetBrains Mono", monospace); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color: var(--red-ink); margin-bottom:.3rem; }
+.pb-where .dot { color: var(--ink-3, #999); padding: 0 .35em; }
+
+/* ---------- Hero testimonial ---------- */
+.hero-quote { margin: 22px 0 0; padding-left: 16px; border-left: 3px solid var(--blue); max-width: 46ch; }
+.hero-quote blockquote { margin: 0; font-size: 1rem; line-height: 1.6; color: var(--ink); font-style: italic; }
+.hero-quote figcaption { margin-top: 6px; font: 500 .72rem/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
