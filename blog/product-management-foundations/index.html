@@ -2,17 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- Google Analytics (loads only on buildwithmeg.com) -->
+<!-- Google tag (gtag.js) -->
+<script>if (!/(^|\.)buildwithmeg\.com$/.test(location.hostname)) window['ga-disable-G-VCVZNZRRMF'] = true;</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCVZNZRRMF"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  if (/(^|\.)buildwithmeg\.com$/.test(location.hostname)) {
-    var ga = document.createElement('script'); ga.async = true;
-    ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-VCVZNZRRMF';
-    document.head.appendChild(ga);
-    gtag('js', new Date());
-    gtag('config', 'G-VCVZNZRRMF');
-  }
+  gtag('js', new Date());
+
+  gtag('config', 'G-VCVZNZRRMF');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Product Management Foundations: A Working List of Truths | Build with Meg</title>
