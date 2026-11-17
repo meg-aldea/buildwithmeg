@@ -156,3 +156,24 @@ document.querySelectorAll(".email-link").forEach((a) => {
     window.location.href = "mailto:" + addr;
   });
 });
+
+// testimonials carousel
+document.querySelectorAll('.carousel').forEach((car) => {
+  const track = car.querySelector('.car-track');
+  const slides = [...track.children];
+  const dots = car.querySelector('.car-dots');
+  let cur = 0, lock = 0;
+  const go = (i) => { cur = (i + slides.length) % slides.length; lock = Date.now() + 700; mark(); track.scrollTo({ left: slides[cur].offsetLeft - track.offsetLeft }); };
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.type = 'button'; d.setAttribute('role', 'tab'); d.setAttribute('aria-label', `Testimonial ${i + 1}`);
+    d.addEventListener('click', () => go(i));
+    dots.appendChild(d);
+  });
+  const mark = () => [...dots.children].forEach((d, i) => d.setAttribute('aria-selected', i === cur));
+  track.addEventListener('scroll', () => { if (Date.now() < lock) return; cur = Math.round(track.scrollLeft / track.clientWidth); mark(); }, { passive: true });
+  car.querySelector('.car-prev').addEventListener('click', () => go(cur - 1));
+  car.querySelector('.car-next').addEventListener('click', () => go(cur + 1));
+  track.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') { e.preventDefault(); go(cur + 1); } if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1); } });
+  mark();
+});
