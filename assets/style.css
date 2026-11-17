@@ -1513,3 +1513,8 @@ h1, h2 { line-height: 1.1; }
 .section-head { gap: 24px; }
 .editorial .section-head { margin-bottom: clamp(44px, 6vw, 72px); }
 .pb-intro h2 { margin-bottom: 1.85rem; }
+.page-head h1 { margin: 26px 0 30px; }
+.pgroup-head { gap: 18px; }
+.project .body h2 { margin-block: 6px; }
+.chapter-tag { margin-bottom: 24px; }
+.chapter h2 { margin-bottom: 30px; }
