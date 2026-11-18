@@ -7,11 +7,14 @@
   // Robotic, not sparkly: white dots in a few quantized shades that switch in
   // discrete ticks, booting up row by row, with a slow scanline passing down.
   const SHADES = [0.12, 0.28, 0.5, 0.85];
+  // Now and then a dot lights up in one of the two accent colors (shirt blue, pastel coral).
+  const TINTS = ["255,255,255", "159,180,222", "229,138,128"];
+  const ACCENT = 0.035;
   function dotField(canvas, opts) {
     const ctx = canvas.getContext("2d");
     const o = Object.assign({ gap: 26, r: 2.1, gain: 1, scan: true, boot: true, depth: 0.55 }, opts);
     let w, h, cols, rows, grid = [], base = 0, raf, t0 = performance.now(), running = true;
-    const cell = () => ({ s: (Math.random() * 2) | 0, next: 0, rate: 0.6 + Math.random() * 2.4 });
+    const cell = () => ({ s: (Math.random() * 2) | 0, c: 0, next: 0, rate: 0.6 + Math.random() * 2.4 });
     const row = () => Array.from({ length: cols }, cell);
 
     function size() {
@@ -50,8 +53,10 @@
           if (t > p.next) {                                    // discrete state change
             p.next = t + p.rate * (0.5 + Math.random());
             p.s = Math.random() < 0.7 ? (Math.random() * 2) | 0 : 2 + ((Math.random() * 2) | 0);
+            p.c = Math.random() < ACCENT ? 1 + ((Math.random() * 2) | 0) : 0;
+            if (p.c) p.s = 3;                                  // accent dots show at full shade
           }
-          ctx.fillStyle = `rgba(255,255,255,${SHADES[Math.min(3, p.s + bump)] * o.gain})`;
+          ctx.fillStyle = `rgba(${TINTS[p.c]},${SHADES[Math.min(3, p.s + bump)] * o.gain})`;
           ctx.fillRect(o.gap / 2 + c * o.gap - o.r, y - o.r, o.r * 2, o.r * 2);
         }
       }
