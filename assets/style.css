@@ -1799,3 +1799,29 @@ body.dark .toolkit-panel .lp { background: transparent !important; border: 0 !im
 .toolkit-panel .lp h3 { font: 600 clamp(2rem, 4vw, 3.1rem)/1.1 var(--display) !important; letter-spacing: -0.03em !important; text-transform: none !important; color: var(--ink) !important; margin-bottom: clamp(24px, 4vh, 44px) !important; }
 .toolkit-panel .kit-h { font: 700 .78rem/1.4 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--blue) !important; }
 .toolkit-panel .kit p { font-size: clamp(1rem, 1.4vw, 1.15rem); line-height: 1.6; color: var(--ink-2); }
+
+/* contact panel: cards + links on the left, question form on the right */
+.talk-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 64px); align-items: start; }
+.talk-grid .asks { grid-template-columns: 1fr; gap: 0; margin-bottom: 28px; max-width: none; }
+.talk-grid .ask { padding: 18px 0 !important; }
+@media (max-width: 860px) { .talk-grid { grid-template-columns: 1fr; } }
+.ask-form { display: grid; gap: 14px; border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(20px, 3vw, 32px); background: rgba(11, 13, 18, 0.55); backdrop-filter: blur(4px); }
+.ask-form h3 { margin: 0; font: 600 clamp(1.25rem, 2vw, 1.55rem)/1.2 var(--display); letter-spacing: -0.02em; color: var(--ink); }
+.ask-form .sub { margin: -6px 0 4px; color: var(--ink-2); }
+.ask-form .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 520px) { .ask-form .row2 { grid-template-columns: 1fr; } }
+.ask-form label { display: grid; gap: 6px; font: 700 .7rem/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-3); }
+.ask-form input, .ask-form textarea {
+  font: 400 1rem/1.5 var(--body); color: var(--ink); background: rgba(255,255,255,.04);
+  border: 1px solid var(--line); border-radius: var(--radius); padding: 11px 12px; width: 100%; box-sizing: border-box;
+  text-transform: none; letter-spacing: 0;
+}
+.ask-form textarea { resize: vertical; min-height: 96px; }
+.ask-form input:focus, .ask-form textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(159,180,222,.18); }
+.ask-form .invalid { border-color: var(--red-ink, #ee9b92); }
+.ask-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.ask-form .form-foot { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.ask-form .form-status { margin: 0; font-size: .92rem; color: var(--ink-2); }
+.ask-form .form-status.ok { color: var(--blue); }
+.ask-form .form-status.err { color: #ee9b92; }
+.ask-form button[disabled] { opacity: .6; cursor: wait; }

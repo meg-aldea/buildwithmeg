@@ -27,9 +27,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css?v=1795030804">
-<script src="../assets/site.js?v=1795030804" defer></script>
-<script src="../assets/intro.js?v=1795031439" defer></script>
+<link rel="stylesheet" href="../assets/style.css?v=1795032138">
+<script src="../assets/site.js?v=1795032138" defer></script>
+<script src="../assets/intro.js?v=1795032138" defer></script>
 </head>
 <body class="editorial dark dotsbg">
 <canvas class="bg-dots" aria-hidden="true"></canvas>
@@ -164,13 +164,32 @@
         <h2>Let’s <span class="hl blue">build</span> something.</h2>
         <p>Next, I’m looking for a long-term home: a team scaling a product people already pay for.</p>
       </div>
-      <div class="asks">
-        <div class="ask reveal"><span class="k">01</span><h3>Hiring a leader?</h3><p>I’d love to hear about the role and the team. Send it my way and let’s talk.</p></div>
-        <div class="ask reveal d1"><span class="k">02</span><h3>Want to talk shop?</h3><p>Product, learning science, or building things with Claude Code. Happy to compare notes.</p></div>
-      </div>
-      <div class="contact-links reveal">
-        <a class="btn email-link" href="#contact" data-u="mmross7" data-d="gmail.com">Email me</a>
-        <a class="btn pinkb" href="https://www.linkedin.com/in/megross2" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <div class="talk-grid">
+        <div class="talk-left">
+        <div class="asks">
+          <div class="ask reveal"><span class="k">01</span><h3>Hiring a leader?</h3><p>I’d love to hear about the role and the team. Send it my way and let’s talk.</p></div>
+          <div class="ask reveal d1"><span class="k">02</span><h3>Want to talk shop?</h3><p>Product, learning science, or building things with Claude Code. Happy to compare notes.</p></div>
+        </div>
+        <div class="contact-links reveal">
+          <a class="btn email-link" href="#contact" data-u="mmross7" data-d="gmail.com">Email me</a>
+          <a class="btn pinkb" href="https://www.linkedin.com/in/megross2" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+        </div>
+        <form class="ask-form reveal d1" action="https://formspree.io/f/mnpdvlvw" method="POST" data-formspree="mnpdvlvw" novalidate>
+          <h3>Questions, comments, feedback?</h3>
+          <p class="sub">Drop it here. Excited to hear from you!</p>
+          <div class="row2">
+            <label>Name<input type="text" name="name" autocomplete="name" required></label>
+            <label>Email<input type="email" name="email" autocomplete="email" required></label>
+          </div>
+          <label>Message<textarea name="message" rows="4" required></textarea></label>
+          <label class="hp" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          <input type="hidden" name="_subject" value="buildwithmeg.com: new note">
+          <div class="form-foot">
+            <button class="btn" type="submit">Send <span class="arr">→</span></button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
       </div>
     </div>
   </section>

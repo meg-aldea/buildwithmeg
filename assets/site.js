@@ -213,3 +213,36 @@ document.querySelectorAll('.carousel').forEach((car) => {
   addEventListener("resize", update);
   update();
 })();
+
+// "Questions, comments, feedback?" form. Posts to Formspree; the form ID goes in
+// data-formspree on the <form>. Name, email and message are required.
+document.querySelectorAll(".ask-form").forEach((form) => {
+  const status = form.querySelector(".form-status");
+  const btn = form.querySelector("button[type=submit]");
+  const say = (msg, cls) => { status.textContent = msg; status.className = "form-status" + (cls ? " " + cls : ""); };
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    let bad = null;
+    form.querySelectorAll("[required]").forEach((f) => {
+      const ok = f.value.trim() !== "" && f.checkValidity();
+      f.classList.toggle("invalid", !ok);
+      if (!ok && !bad) bad = f;
+    });
+    if (bad) {
+      say(bad.name === "email" && bad.value.trim() ? "That email doesn’t look quite right." : "Please fill in your name, email and message.", "err");
+      bad.focus();
+      return;
+    }
+    const id = form.dataset.formspree;
+    if (!id) { say("This form isn’t connected yet. Please use the email button for now.", "err"); return; }
+    btn.disabled = true; say("Sending…");
+    try {
+      const res = await fetch("https://formspree.io/f/" + id, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } });
+      if (!res.ok) throw new Error(res.status);
+      form.reset(); say("Thank you!", "ok");
+    } catch (err) {
+      say("Something went wrong sending that. Please try again, or use the email button.", "err");
+    } finally { btn.disabled = false; }
+  });
+  form.querySelectorAll("[required]").forEach((f) => f.addEventListener("input", () => f.classList.remove("invalid")));
+});
