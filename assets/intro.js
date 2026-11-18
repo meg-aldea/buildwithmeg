@@ -19,7 +19,10 @@
 
     function size() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      w = canvas.clientWidth; h = canvas.clientHeight;
+      // The canvas covers the viewport; Safari can report its CSS size as 300x150 before
+      // layout settles, so measure the window instead.
+      w = canvas.clientWidth || innerWidth; h = canvas.clientHeight || innerHeight;
+      if (w < innerWidth * 0.9 || h < innerHeight * 0.5) { w = innerWidth; h = innerHeight; }
       canvas.width = w * dpr; canvas.height = h * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       cols = Math.ceil(w / o.gap); rows = Math.ceil(h / o.gap) + 2;
@@ -65,6 +68,8 @@
 
     size();
     addEventListener("resize", size);
+    addEventListener("load", size);
+    if ("ResizeObserver" in window) new ResizeObserver(size).observe(canvas);
     raf = requestAnimationFrame(frame);
     return {
       setGain(g) { o.gain = g; },
