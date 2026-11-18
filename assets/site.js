@@ -18,7 +18,11 @@ if (hero) {
       if (n < words.length - 1) el.appendChild(document.createTextNode(" "));
     });
   });
-  requestAnimationFrame(() => hero.classList.add("go"));
+  // On the landing page the hero waits below a screen of dots: animate it in as it arrives.
+  if (document.querySelector(".intro-space") && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { hero.classList.add("go"); io.disconnect(); } }, { threshold: 0.3 });
+    io.observe(hero);
+  } else requestAnimationFrame(() => hero.classList.add("go"));
 }
 
 // Scroll reveal
@@ -177,3 +181,35 @@ document.querySelectorAll('.carousel').forEach((car) => {
   track.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') { e.preventDefault(); go(cur + 1); } if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1); } });
   mark();
 });
+
+// Left rail nav: scroll-progress line, phone menu toggle, and (landing only)
+// hidden while the dots-only opening screen is showing.
+(() => {
+  const nav = document.querySelector(".nav");
+  if (!nav) return;
+  const wrap = nav.querySelector(".wrap");
+  const prog = document.createElement("div");
+  prog.className = "rail-progress"; prog.setAttribute("aria-hidden", "true");
+  prog.appendChild(document.createElement("i"));
+  wrap.appendChild(prog);
+
+  const btn = document.createElement("button");
+  btn.className = "menu-btn"; btn.type = "button";
+  btn.setAttribute("aria-label", "Menu"); btn.setAttribute("aria-expanded", "false");
+  btn.appendChild(document.createElement("span"));
+  wrap.insertBefore(btn, wrap.querySelector("nav"));
+  const setOpen = (o) => { nav.classList.toggle("open", o); btn.setAttribute("aria-expanded", o); document.documentElement.style.overflow = o ? "hidden" : ""; };
+  btn.addEventListener("click", () => setOpen(!nav.classList.contains("open")));
+  nav.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setOpen(false)));
+  addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
+
+  const intro = document.querySelector(".intro-space");
+  const update = () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    prog.style.setProperty("--p", max > 0 ? Math.min(1, scrollY / max) : 0);
+    if (intro) document.body.classList.toggle("rail-off", scrollY < intro.offsetHeight * 0.6 && !nav.classList.contains("open"));
+  };
+  addEventListener("scroll", update, { passive: true });
+  addEventListener("resize", update);
+  update();
+})();

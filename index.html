@@ -27,8 +27,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=1794941173">
-<script src="assets/site.js?v=1794941173" defer></script>
+<link rel="stylesheet" href="assets/style.css?v=1795030804">
+<script src="assets/site.js?v=1795030804" defer></script>
+<script src="assets/intro.js?v=1795030804" defer></script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -67,7 +68,9 @@
 }
 </script>
 </head>
-<body class="editorial">
+<body class="editorial dark dotsbg">
+<canvas class="bg-dots" aria-hidden="true"></canvas>
+<div class="intro-space" aria-hidden="true"><a class="intro-hint" href="#main" tabindex="-1">scroll</a></div>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="nav">
@@ -86,19 +89,15 @@
 <main id="main">
 
   <!-- 1. WHO / WHAT -->
-  <section class="hero">
+  <section class="panel hero">
     <div class="wrap">
       <div>
         <span class="step"><b>1</b> Who I am</span>
-        <h1 style="font-size:clamp(2.6rem,6vw,4.8rem)">
+        <h1 style="font-size:clamp(2.6rem,6.2vw,5.5rem)">
           <span data-split>I build products that</span>
           <span class="hl" style="--d:900ms"><span data-split>move the business</span></span>
         </h1>
-        <p class="lede formula">relentless customer empathy <span class="op">+</span> AI-powered operational execution <span class="op">=</span> <strong>momentum</strong></p>
-        <figure class="hero-quote">
-          <blockquote>“She … is a highly proficient product manager with a deep appreciation for creating <mark>the best user experiences</mark> and she has a <mark>relentless passion</mark> to produce the best possible digital products.”</blockquote>
-          <figcaption>Niel McLean | Digital product design, PADI</figcaption>
-        </figure>
+        <p class="lede">The personality hire who knows how to get sh** done</p>
         <div class="ctas">
           <a class="btn" href="#results">See the results <span class="arr">→</span></a>
           <a class="btn ghost" href="#contact">Get in touch</a>
@@ -114,88 +113,28 @@
     </div>
   </section>
 
-  <!-- PLAYBOOK / BRAND STATEMENT -->
-  <section class="playbook" id="playbook">
+  <!-- TESTIMONIALS -->
+  <section class="panel testimonials" aria-label="Testimonials">
     <div class="wrap">
-      <div class="pb-grid">
-        <div class="pb-intro reveal">
-          <h2>Same playbook. <span class="hl">Every time.</span></h2>
-          <p>My approach doesn’t change whether I’m teaching bilingual elementary students, scaling Amazon Kids to 1.2 million users, or building evaluation scoreboards with AI researchers. Product management is an empathy and execution loop.</p>
-        </div>
-        <ol class="pb-steps reveal">
-          <li><span><b>Figure out who the customer is.</b></span></li>
-          <li><span><b>Figure out why they’re stuck.</b></span></li>
-          <li><span><b>Craft the right solution:</b> stable, scalable, and the <em class="best">best</em> version of the solve. <span class="aside">(If an email solves your problem, you don’t have the best.)</span></span></li>
-          <li><span><b>Right-size the solution</b> to capacity.</span></li>
-          <li><span><b>Ship.</b></span></li>
-        </ol>
-      </div>
-      <div class="pb-card reveal">
-        <h3 class="pb-sub">I bring a relentless customer obsession to the work I do. In teaching, if your customer (student) doesn’t get it, you didn’t do your job.</h3>
-        <p>Across all my experience, regardless of the domain, regardless of the problem, regardless of the size of the business, I use product management fundamentals to drive impact. I learn the landscape and the customer, identify the opportunity or the blocker, right-size the solution, and execute. I also bring a deep-seated need to be liked, driving outcomes.</p>
-      </div>
-      <p class="pb-where reveal"><span class="lbl">Proven in</span><span class="row"><span class="ind-i">Consumer subscriptions</span><span class="dot">|</span><span class="ind-i">Media &amp; publishing</span><span class="dot">|</span><span class="ind-i">Kids &amp; family</span><span class="dot">|</span><span class="ind-i">Education</span><span class="dot">|</span><span class="ind-i">Healthcare</span></span><span class="row"><span class="ind-i">Pharma</span><span class="dot">|</span><span class="ind-i">Manufacturing &amp; security</span><span class="dot">|</span><span class="ind-i">Developer tools</span><span class="dot">|</span><span class="ind-i">Frontier AI</span></span></p>
-    </div>
-  </section>
-
-
-  <!-- 2. IS IT GOOD? -->
-  <section id="results">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="step"><b>2</b> The results</span>
-        <h2>Business impact, <span class="hl">by the numbers</span>.</h2>
-        <p>Deep analytical rigor and user insight, turned into product strategy, security enhancements, and measurable growth in global subscription services.</p>
-      </div>
-
-      <div class="results results-5">
-        <div class="result feature reveal">
-          <span class="big">$<span data-count="15" data-suffix="M+">15M+</span></span>
-          <strong>Cumulative ARR</strong>
-          <p>Across global education, enterprise, and consumer platforms by owning the 0→1 product lifecycle.</p>
-          <span class="co">Across 10+ years</span>
-        </div>
-        <div class="result reveal">
-          <span class="big"><span data-count="1.2" data-decimals="1" data-suffix="M">1.2M</span></span>
-          <strong>MAU, up from 250K</strong>
-          <p>Grew Amazon Kids on Fire TV from 54K to 228K subscribers in 10 months, reaching ~$1M in monthly revenue (~$12M ARR run-rate).</p>
-          <span class="co">Amazon | Kids on Fire TV</span>
-        </div>
-        <div class="result reveal d1">
-          <span class="big"><span data-count="440" data-suffix="K">440K</span></span>
-          <strong>Customers made EU-compliant, early</strong>
-          <p>Multi-factor authentication delivered two months ahead of the deadline, protecting ~$50M ARR from penalty risk.</p>
-          <span class="co">Amazon | Kindle Newsstand</span>
-        </div>
-        <div class="result reveal d2">
-          <span class="big"><span data-count="2" data-suffix="M">2M</span></span>
-          <strong>Course enrollments, doubled</strong>
-          <p>In one year, on a zero-to-one B2B2C learning platform in 26 languages: a $15M platform transformation.</p>
-          <span class="co">PADI</span>
-        </div>
-        <div class="result reveal d3">
-          <span class="big">~<span data-count="30" data-suffix="h">30h</span></span>
-          <strong>Saved per week</strong>
-          <p>A real-time LLM benchmark evaluation suite, built with AI researchers using Claude Code.</p>
-          <span class="co">Subquadratic</span>
-        </div>
-      </div>
-
-      <div class="carousel reveal" aria-roledescription="carousel" aria-label="Testimonials" style="margin-top:clamp(56px,8vw,88px)">
+      <div class="carousel reveal" aria-roledescription="carousel" aria-label="Testimonials">
         <div class="car-track" tabindex="0">
-          <figure class="quote-card slide" role="group" aria-roledescription="slide" aria-label="1 of 4">
+          <figure class="quote-card slide" role="group" aria-roledescription="slide" aria-label="1 of 5">
+            <blockquote>She … is a highly proficient product manager with a deep appreciation for creating <mark>the best user experiences</mark> and she has a <mark>relentless passion</mark> to produce the best possible digital products.</blockquote>
+            <cite><strong>Niel McLean</strong><br>Digital product design | PADI</cite>
+          </figure>
+          <figure class="quote-card slide" role="group" aria-roledescription="slide" aria-label="2 of 5">
             <blockquote>From day one, Meg was an incredible fit, bringing deep product management expertise that helped reinforce a product-led mindset within a traditionally IT-driven organization.</blockquote>
             <cite><strong>Josh Dahmer</strong><br>Manager, Product Management | Adobe Product Management Center of Excellence</cite>
           </figure>
-          <figure class="quote-card slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
+          <figure class="quote-card slide" role="group" aria-roledescription="slide" aria-label="3 of 5">
             <blockquote>Meg has paved the way for PADI to envision a future with their digital learning product portfolio. She was integral to planning, scoping, and building the new IDC and new Open Water Diver journeys. She has been a pleasure to work with, super intelligent, and brings joy and enthusiasm to the whole team.</blockquote>
             <cite><strong>Dorota Juska-Fairbanks</strong><br>Global Localization Leader | PADI</cite>
           </figure>
-          <figure class="quote-card slide" role="group" aria-roledescription="slide" aria-label="3 of 4">
+          <figure class="quote-card slide" role="group" aria-roledescription="slide" aria-label="4 of 5">
             <blockquote>Meg brings a tremendous amount of experience, order, and discipline to any team she is paired with, and is also a lot of fun.</blockquote>
             <cite><strong>Steve Jackson</strong><br>Senior Infrastructure Lead | Subquadratic</cite>
           </figure>
-          <figure class="quote-card slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
+          <figure class="quote-card slide" role="group" aria-roledescription="slide" aria-label="5 of 5">
             <blockquote>I’ve heard people say “the product manager is the natural enemy of the software engineer.” But you always made me feel like you had our back and work was a lot better for it.</blockquote>
             <cite><strong>Eric Riddoch</strong><br>Senior Engineering Manager | Subquadratic</cite>
           </figure>
@@ -206,25 +145,14 @@
           <button class="car-btn car-next" type="button" aria-label="Next testimonial">&rarr;</button>
         </div>
       </div>
-
-      <div class="lp reveal" style="margin-top:clamp(48px,7vw,72px)">
-        <h3>Leadership &amp; Awards</h3>
-        <ul>
-          <li>Judge, Speaker, Panelist, Mentor: Pegasus Ventures LATAM Startup World Cup 2023, Women in Tech</li>
-          <li>Speaker: Product School 2022, AMA</li>
-          <li>Selected from 1,000+ applicants for Shreyas Doshi’s Product Sense for Product Leaders, Oct. 2024</li>
-          <li>Amazon Kids+: Best Kids Only Streaming Service 2023, Kidscreen Awards</li>
-          <li>Pearson TELL: Best of Show 2015, ISTE</li>
-        </ul>
-      </div>
     </div>
   </section>
 
-  <!-- 3. IS IT FOR ME? -->
-  <section style="padding-top:0">
+  <!-- 2. IS IT FOR ME? -->
+  <section class="panel" id="fix">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="step"><b>3</b> Is this for you?</span>
+        <span class="step"><b>2</b> Am I for you?</span>
         <h2>What I get <span class="hl pink">hired to fix</span></h2>
         <p>Struggling with one of the following? Happy to connect.</p>
       </div>
@@ -263,8 +191,102 @@
     </div>
   </section>
 
+  <!-- PLAYBOOK -->
+  <section class="panel playbook-title" id="playbook">
+    <div class="wrap">
+      <h2 class="reveal pb-big">Same playbook. <span class="hl">Every time.</span></h2>
+    </div>
+  </section>
+
+  <section class="panel pb-statement">
+    <div class="wrap">
+      <div class="reveal">
+        <h3 class="pb-sub">I bring a relentless customer obsession to the work I do. In teaching, if your customer (student) doesn’t get it, you didn’t do your job.</h3>
+        <p class="pb-para">Across all my experience, regardless of the domain, regardless of the problem, regardless of the size of the business, I use product management fundamentals to drive impact. I learn the landscape and the customer, identify the opportunity or the blocker, right-size the solution, and execute. I also bring a deep-seated need to be liked, driving outcomes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel pb-steps-panel">
+    <div class="wrap">
+      <ol class="pb-steps reveal">
+          <li><span><b>Figure out who the customer is.</b></span></li>
+          <li><span><b>Figure out why they’re stuck.</b></span></li>
+          <li><span><b>Craft the right solution:</b> stable, scalable, and the <em class="best">best</em> version of the solve.</span></li>
+          <li><span><b>Ship.</b></span></li>
+          <li><span><b>Iterate.</b></span></li>
+        </ol>
+    </div>
+  </section>
+
+  <!-- 3. IS IT GOOD? -->
+  <section class="panel" id="results">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="step"><b>3</b> The results</span>
+        <h2>Business impact, <span class="hl">by the numbers</span>.</h2>
+        <p class="pb-where"><span class="lbl">Proven in</span><span class="row"><span class="ind-i">Consumer subscriptions</span><span class="dot">|</span><span class="ind-i">Media &amp; publishing</span><span class="dot">|</span><span class="ind-i">Kids &amp; family</span><span class="dot">|</span><span class="ind-i">Education</span><span class="dot">|</span><span class="ind-i">Healthcare</span></span><span class="row"><span class="ind-i">Pharma</span><span class="dot">|</span><span class="ind-i">Manufacturing &amp; security</span><span class="dot">|</span><span class="ind-i">Developer tools</span><span class="dot">|</span><span class="ind-i">Frontier AI</span></span></p>
+      </div>
+
+      <div class="results results-5">
+        <div class="result feature reveal">
+          <span class="big">$<span data-count="15" data-suffix="M+">15M+</span></span>
+          <strong>Cumulative ARR</strong>
+          <p>Across global education, enterprise, and consumer platforms by owning the 0→1 product lifecycle.</p>
+          <span class="co">Across 10+ years</span>
+        </div>
+        <div class="result reveal">
+          <span class="big"><span data-count="1.2" data-decimals="1" data-suffix="M">1.2M</span></span>
+          <strong>MAU, up from 250K</strong>
+          <p>Grew Amazon Kids on Fire TV from 54K to 228K subscribers in 10 months, reaching ~$1M in monthly revenue (~$12M ARR run-rate).</p>
+          <span class="co">Amazon | Kids on Fire TV</span>
+        </div>
+        <div class="result reveal d1">
+          <span class="big"><span data-count="440" data-suffix="K">440K</span></span>
+          <strong>Customers made EU-compliant, early</strong>
+          <p>Multi-factor authentication delivered two months ahead of the deadline, protecting ~$50M ARR from penalty risk.</p>
+          <span class="co">Amazon | Kindle Newsstand</span>
+        </div>
+        <div class="result reveal d2">
+          <span class="big"><span data-count="2" data-suffix="M">2M</span></span>
+          <strong>Course enrollments, doubled</strong>
+          <p>In one year, on a zero-to-one B2B2C learning platform in 26 languages: a $15M platform transformation.</p>
+          <span class="co">PADI</span>
+        </div>
+        <div class="result reveal d3">
+          <span class="big">~<span data-count="30" data-suffix="h">30h</span></span>
+          <strong>Saved per week</strong>
+          <p>A real-time LLM benchmark evaluation suite, built with AI researchers using Claude Code.</p>
+          <span class="co">Subquadratic</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LEADERSHIP & AWARDS -->
+  <section class="panel awards">
+    <div class="wrap">
+      <h2 class="aw-title reveal">Leadership &amp; Awards</h2>
+      <div class="carousel reveal" aria-roledescription="carousel" aria-label="Leadership and awards">
+        <div class="car-track" tabindex="0">
+          <div class="slide award-slide" role="group" aria-roledescription="slide" aria-label="1 of 5"><span class="aw-lab">Judge, Speaker, Panelist, Mentor</span><p class="aw-body">Pegasus Ventures LATAM Startup World Cup 2023, Women in Tech</p></div>
+          <div class="slide award-slide" role="group" aria-roledescription="slide" aria-label="2 of 5"><span class="aw-lab">Speaker</span><p class="aw-body">Product School 2022, AMA</p></div>
+          <div class="slide award-slide" role="group" aria-roledescription="slide" aria-label="3 of 5"><p class="aw-body">Selected from 1,000+ applicants for Shreyas Doshi’s Product Sense for Product Leaders, Oct. 2024</p></div>
+          <div class="slide award-slide" role="group" aria-roledescription="slide" aria-label="4 of 5"><span class="aw-lab">Amazon Kids+</span><p class="aw-body">Best Kids Only Streaming Service 2023, Kidscreen Awards</p></div>
+          <div class="slide award-slide" role="group" aria-roledescription="slide" aria-label="5 of 5"><span class="aw-lab">Pearson TELL</span><p class="aw-body">Best of Show 2015, ISTE</p></div>
+        </div>
+        <div class="car-nav">
+          <button class="car-btn car-prev" type="button" aria-label="Previous award">&larr;</button>
+          <div class="car-dots" role="tablist"></div>
+          <button class="car-btn car-next" type="button" aria-label="Next award">&rarr;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 4. WHAT CAN I DO? -->
-  <section class="outreach" id="contact">
+  <section class="panel outreach" id="contact">
     <div class="wrap">
       <div class="section-head reveal">
         <span class="step"><b>4</b> Let’s talk</span>

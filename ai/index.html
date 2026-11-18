@@ -27,10 +27,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css?v=1794941173">
-<script src="../assets/site.js?v=1794941173" defer></script>
+<link rel="stylesheet" href="../assets/style.css?v=1795030804">
+<script src="../assets/site.js?v=1795030804" defer></script>
+<script src="../assets/intro.js?v=1795030804" defer></script>
 </head>
-<body class="editorial dark">
+<body class="editorial dark dotsbg">
+<canvas class="bg-dots" aria-hidden="true"></canvas>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="nav">
@@ -49,7 +51,7 @@
 <main id="main">
 
   <!-- 1. WHO / WHAT -->
-  <section class="hero">
+  <section class="panel hero">
     <div class="wrap">
       <div>
         <span class="step"><b>1</b> Who I am</span>
@@ -75,7 +77,7 @@
 
 
   <!-- 2. IS IT GOOD? -->
-  <section id="results">
+  <section class="panel" id="results">
     <div class="wrap">
       <div class="section-head reveal">
         <span class="step"><b>2</b> The proof</span>
@@ -117,22 +119,8 @@
     </div>
   </section>
 
-  <!-- TOOLKIT -->
-  <section style="padding-top:0">
-    <div class="wrap">
-      <div class="lp toolkit reveal">
-        <h3>The AI toolkit</h3>
-        <div class="kit">
-          <div><span class="kit-h">Evaluation</span><p>LLM benchmarking (NIAH, RULER, SWE-bench Verified) | LLM-as-judge | HITL validation | golden datasets | bias evaluation</p></div>
-          <div><span class="kit-h">Models &amp; modalities</span><p>Model fine-tuning | conversational GenAI | speech AI (TTS, STT, ASR) | computer vision</p></div>
-          <div><span class="kit-h">Building</span><p>Claude Code | Cursor | Python | SQL | JavaScript | AWS | Google Cloud | Kubernetes | Vercel | Cloudflare</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- 3. IS IT FOR ME? -->
-  <section style="padding-top:0">
+  <section class="panel" id="fix">
     <div class="wrap">
       <div class="section-head reveal">
         <span class="step"><b>3</b> Is this you?</span>
@@ -169,7 +157,7 @@
   </section>
 
   <!-- 4. WHAT CAN I DO? -->
-  <section class="outreach" id="contact">
+  <section class="panel outreach" id="contact">
     <div class="wrap">
       <div class="section-head reveal">
         <span class="step"><b>4</b> Let’s talk</span>
