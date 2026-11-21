@@ -751,6 +751,7 @@ footer a:hover { color: var(--cobalt); }
   font: 600 .72rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--cobalt);
 }
 .problem .fix p { margin: 0; }
+.problems .problem:last-child:nth-child(odd) { grid-column: 1 / -1; }
 @media (max-width: 760px) { .problems { grid-template-columns: 1fr; } }
 
 .outreach { background: var(--sun); border-top: 2px solid var(--ink); }
